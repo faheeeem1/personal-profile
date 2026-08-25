@@ -163,3 +163,39 @@ footer {
 #articles-container a:hover {
     text-decoration: underline;
 }
+
+
+/* Weather */
+
+.weather-search {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#city-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex: 1;
+}
+
+#weather-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#weather-result {
+    text-align: center;
+}
+
+#weather-result img {
+    width: 80px;
+    height: 80px;
+}
+
+#weather-result p {
+    margin: 5px 0;
+}

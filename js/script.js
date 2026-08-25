@@ -141,7 +141,7 @@ const fetchArticles = async () => {
         articlesContainer.innerHTML = "";
         articles.forEach(article => {
             const articleElement = document.createElement("article");
-            
+
             articleElement.innerHTML = `
                 <h3>
                     <a href="${article.url}" target="_blank">
@@ -160,4 +160,63 @@ const fetchArticles = async () => {
 };
 
 fetchArticles();
+
+
+
+
+// Live Weather
+
+const cityInput = document.getElementById("city-input");
+const weatherButton = document.getElementById("weather-button");
+const weatherResult = document.getElementById("weather-result");
+
+const API_KEY = "99e2b761fbf9f4ed46f4826f5e7ef916";
+
+const getWeather = async () => {
+    const city = cityInput.value.trim();
+
+    if (city === "") {
+        weatherResult.innerHTML = "<p>Please enter a city name.</p>";
+        return;
+    }
+
+    weatherResult.innerHTML = "<p>Loading weather...</p>";
+
+    try {
+        const response = await fetch(
+            `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&units=metric&appid=${API_KEY}`
+        );
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            console.error("OpenWeather API Error:", errorData);
+
+            throw new Error(errorData.message || "Weather request failed");
+        }
+
+        const weatherData = await response.json();
+
+        const temperature = Math.round(weatherData.main.temp);
+        const description = weatherData.weather[0].description;
+        const icon = weatherData.weather[0].icon;
+
+        weatherResult.innerHTML = `
+            <h3>${weatherData.name}</h3>
+            <img
+                src="https://openweathermap.org/img/wn/${icon}@2x.png"
+                alt="${description}"
+            >
+            <p>${temperature}°C</p>
+            <p>${description}</p>
+        `;
+
+    } catch (error) {
+        weatherResult.innerHTML =
+            "<p>Unable to load weather. Please try again later.</p>";
+
+        console.error("Weather API Error:", error);
+    }
+};
+
+weatherButton.addEventListener("click", getWeather);
 
