@@ -123,6 +123,22 @@ $(".project").hover(
     }
 );
 
+// Interactive Gallery using jQuery
+
+$(".gallery-thumbnail").click(function() {
+
+    const image = $(this).data("image");
+    const title = $(this).data("title");
+    const description = $(this).data("description");
+
+    $("#gallery-main-image").attr("src", image);
+    $("#gallery-main-image").attr("alt", title);
+
+    $("#gallery-title").text(title);
+    $("#gallery-description").text(description);
+
+});
+
 
 // Fetching articles from DEV.to API
 
