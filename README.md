@@ -97,3 +97,8 @@ personal-profile/
 ├── images/
 │   └── ...
 └── README.md
+
+
+## Deployment
+
+This website is deployed using GitHub Pages.
