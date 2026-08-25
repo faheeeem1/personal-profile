@@ -141,3 +141,25 @@ footer {
         height: 250px;
     }
 }
+
+
+/* Articles */
+
+#articles-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#articles-container article {
+    margin: 0;
+}
+
+#articles-container a {
+    color: #333;
+    text-decoration: none;
+}
+
+#articles-container a:hover {
+    text-decoration: underline;
+}

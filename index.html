@@ -25,6 +25,7 @@
         <a href="#cv">CV</a>
         <a href="#education">Education</a>
         <a href="#projects">Projects</a>
+        <a href="#articles">Articles</a>
         <a href="#activities">Activities</a>
         <a href="#contact">Contact</a>
     </nav>
@@ -33,7 +34,7 @@
 
         <section id="home">
             <h2>Home</h2>
-            <p>Welcome to my personal website!</p>
+            <h3 id = "greeting">Welcome to my personal Website</h3>
             <h3>Hi, I'm Faheem Ahmad</h3>
 
             <p>
@@ -148,8 +149,9 @@
 
         <section id="projects">
             <h2>My Projects</h2>
+            <p id = "projectCount"></p>
 
-            <article>
+            <article class = "project" data-project = "course">
                 <h3>Online Course Registration System</h3>
 
                 <p>
@@ -159,7 +161,7 @@
                 </p>
             </article>
 
-            <article>
+            <article class="project" data-project="website">
                 <h3>Personal Website</h3>
 
                 <p>
@@ -168,7 +170,18 @@
                     technical skills, projects and activities.
                 </p>
             </article>
+            <div id="projectDisplay">
+                <h3>Select a project</h3>
+                <p>Click a project above to see more information.</p>
+            </div>
 
+        </section>
+
+        <section id="articles">
+            <h2>My Articles</h2>
+            <div id="articles-container">
+                <p>Loading articles...</p>
+            </div>
         </section>
 
         <section id="activities">
@@ -202,7 +215,7 @@
 
             <p>You can contact me using the form below.</p>
 
-            <form>
+            <form id = "contactForm">
 
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name">
@@ -268,6 +281,9 @@
     <footer>
         <p>© 2026 My Personal Website</p>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src = "js/script.js"></script>
 
 </body>
 </html>
